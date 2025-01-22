@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abu Dhabi Heritage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">  
+</head>
+<body>
+    <!-- MAIN AREA -->
+    <section class="main">
+        <img src="rwd photo 1.jpg" alt="Hero Image">
+        <div class="overlay">
+            <h1>Welcome to Abu Dhabi Heritage</h1>
+            <p>Explore the rich culture and history</p>
+            <a href="#gallery" class="btn">View Gallery</a>
+        </div>
+    </section>
+
+    <!-- HISTORY AREA -->
+    <section class="section contents">
+        <div class="container">
+            <h2>Our History</h2>
+            <p>
+                Abu Dhabi, the capital of the United Arab Emirates (UAE), has a long and rich history. People have lived in the area for thousands of years,
+                with early communities depending on fishing, pearling, and trade. The Al Nahyan family, which rules Abu Dhabi today, established its power in 
+                the 18th century.In the 1950s, the discovery of oil changed everything. Oil wealth allowed the city to grow rapidly, turning it into a modern
+                and thriving city. In 1971, Abu Dhabi became part of the United Arab Emirates, a new country made up of seven emirates. Today, Abu Dhabi is an
+                important city in the UAE and the world.
+            </p>
+            <div class="section-content">
+                <img src="rwd photo 2.jpg" alt="Old Abu Dhabi">
+                <img src="rwd photo 3.jpg" alt="Modern Abu Dhabi">
+            </div>
+        </div>
+    </section>
+
+    <section class="section contents">
+        <div class="container">
+            <h2>Our Culture</h2>
+            <p>
+                Abu Dhabi’s culture is shaped by Arab traditions and Islamic values. Family, respect, and hospitality are very important.
+                Emirati culture is famous for its kindness, and guests are often offered dates and coffee as a sign of respect.The city also
+                has a growing cultural scene, with museums like the Louvre Abu Dhabi and upcoming exhibitions. Traditional arts, such as Arabic
+                calligraphy and geometric designs, are seen everywhere, and the city celebrates its cultural heritage through events and festivals.
+            </p>
+            <div class="section-content">
+                <img src="rwd photo 4.jpg" alt="Cultural Event">
+                <img src="rwd photo 5.jpg" alt="Art Gallery">
+            </div>
+        </div>
+    </section>
+
+    <section class="section contents">
+        <div class="container">
+            <h2>Our Tradition</h2>
+            <p>
+            The traditions of Abu Dhabi are rooted in its Bedouin heritage, with customs that emphasize hospitality, respect for elders, and pride in family.
+            Traditional crafts such as weaving, pottery, and pearl diving are still celebrated, and many Emiratis continue to follow their ancestors' way of life
+            while embracing modernity.
+            </p>
+            <div class="section-content">
+                <img src="rwd photo 6.jpg" alt="Traditional Craft">
+                <img src="rwd photo 7.jpg" alt="Bedouin Tent">
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY AREA -->
+    <section id="gallery" class="section lightb">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="galleryarea">
+                <div class="gallerystuff"><img src="rwd old 1.jpg" alt="Before"><p>Old</p></div>
+                <div class="gallerystuff"><img src="rwd old 2.jpg" alt="After"><p>Old</p></div>
+                <div class="gallerystuff"><img src="rwd new 1.jpg" alt="Before"><p>New</p></div>
+                <div class="gallerystuff"><img src="rwd new 2.jpg" alt="After"><p>New</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SURVEY AREA -->
+    <section id="survey" class="section contents">
+        <div class="container">
+            <h2>Feedback Survey</h2>
+            <form id="surveyForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email (optional):</label>
+                <input type="email" id="email" name="email">
+
+                <label for="rating">How informative was the content?</label>
+                <select id="rating" name="rating">
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Average">Average</option>
+                    <option value="Poor">Poor</option>
+                </select>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments"></textarea>
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+
+            <div id="successMessage" style="display: none;">
+                <p>Survey submitted successfully!</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Abu Dhabi Heritage. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        $(document).ready(function() {
+            $('#surveyForm').on('submit', function(e) {
+                e.preventDefault(); 
+                var formData = $(this).serialize();
+
+                $.ajax({
+                    url: '/submit-survey',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('#successMessage').show();
+                        $('#surveyForm')[0].reset();
+                    },
+                    error: function(xhr, status, error) {
+                        alert('There was an error submitting your form. Please try again.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

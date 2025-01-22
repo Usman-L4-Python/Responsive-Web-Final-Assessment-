@@ -1,0 +1,226 @@
+body {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+    color: #2F4F4F; 
+    background-color: #F1F1F1; 
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: 'Playfair', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #2F4F4F; 
+}
+
+/* Sections */
+.section {
+    padding: 60px 0;
+}
+
+.contents {
+    background-color: #C9A87B; 
+    color: #2F4F4F; 
+}
+
+.lightb {
+    background-color: #D1B2A1; 
+    color: #2F4F4F; 
+}
+
+
+.main {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FEF9E1; 
+}
+
+.main img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    box-sizing: border-box;
+    z-index: 1; 
+}
+
+.overlay h1 {
+    font-size: 64px;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8); 
+}
+
+.overlay p {
+    font-size: 28px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 36px;
+    margin: 10px;
+    background: #B28D5D; 
+    color: #FEF9E1; 
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #2F4F4F; 
+}
+
+.section-content {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.section-content img {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* History,Culture,and Tradition  */
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Gallery Section */
+.galleryarea {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallerystuff {
+    position: relative;
+    overflow: hidden;
+    background-color: #B28D5D; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.gallerystuff img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gallerystuff p {
+    background: rgba(47, 79, 79, 0.7); 
+    color: #F1F1F1; 
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+}
+
+/* Survey Section */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, select, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #B28D5D;
+    border-radius: 5px;
+}
+
+footer {
+    background: #2F4F4F; 
+    color: #F1F1F1; 
+    padding: 20px 0;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+    .main {
+        height: 70vh;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    .main {
+        height: 60vh;
+        font-size: 14px;
+    }
+    .btn {
+        padding: 8px 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .main {
+        height: 50vh;
+    }
+    .overlay {
+        padding: 30px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    .btn {
+        padding: 5px 15px;
+        font-size: 14px;
+    }
+    .galleryarea {
+        grid-template-columns: 1fr;
+    }
+    .section-content img {
+        width: 90%;
+        height: auto;
+    }
+}
